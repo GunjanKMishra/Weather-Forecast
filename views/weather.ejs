@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather-Forcast</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./output.css">
+</head>
+
+<body class="bg-slate-700 text-center font-Bree bg-cover bg-no-repeat h-screen bg-fixed text-white"
+    style="background-image: linear-gradient(180deg, transparent,rgba(10, 0, 0, 1)), url(./images/background.jpg)">
+
+    <!-- Search portion begin-->
+    <div class="bg-white rounded-lg p-3 mt-3 max-w-fit mx-auto">
+        <form action="/weather" method="post">
+            <input type="text" name="user-location" id="" placeholder="Enter city/Town name"
+                class="w-96 focus:outline-none focus:text-black">
+            <button type="submit"><img src="./images/search-location.png" alt="search" class="w-5 bg-white"></button>
+        </form>
+    </div>
+    <!-- Search portion ends-->
+
+
+    <% if(locals.data){ %>
+        <h1 class="text-5xl my-14">
+            <%= place %> Weather Forcast
+        </h1>
+
+        <!-- main portion begin -->
+        <div class="flex justify-center p-5">
+            <img src="https://openweathermap.org/img/wn/<%= data.weather[0].icon %>@2x.png" alt="icon">
+            <div class="p-3 pl-0">
+                <p class="text-xs">
+                    <%= day %>, <%= date %>
+                            <%= month %>
+                </p>
+                <h2 class="text-3xl">
+                    <%= data.weather[0].description %>
+                </h2>
+            </div>
+        </div>
+
+        <h1 class="text-8xl font-sans font-bold">
+            <%= Math.floor(data.main.temp) %>°C
+        </h1>
+        <!-- main portion ends -->
+
+        <!-- temp range portion begin -->
+        <div class="flex flex-col py-10">
+            <h2>Temperature Range Of <%= place %>
+            </h2>
+            <h3>Min Temp|Max Temp</h3>
+            <h3 class="font-sans">
+                <%= data.main.temp_min %>°C | <%= data.main.temp_max %>°C
+            </h3>
+        </div>
+        <!-- temp range portion ends -->
+
+        <!-- cards portion begin -->
+        <div class="flex flex-wrap justify-center text-black">
+            <div class="bg-white w-40 h-40 m-1 rounded-xl flex flex-wrap justify-center items-center">
+                <img src="./images/thermometer.png" alt="thermometer.png" class="h-12">
+                <div>
+                    <h2>Temp Feels</h2>
+                    <h3 class="font-sans">
+                        <%= data.main.feels_like %>°C
+                    </h3>
+                </div>
+            </div>
+            <div class="bg-white w-40 h-40 m-1 rounded-xl flex flex-wrap justify-center items-center">
+                <img src="./images/humidity.png" alt="humidity.png" class="h-12">
+                <div>
+                    <h2>Humidity</h2>
+                    <h3 class="font-sans">
+                        <%= data.main.humidity %>%
+                    </h3>
+                </div>
+            </div>
+            <div class="bg-white w-40 h-40 m-1 rounded-xl flex flex-wrap justify-center items-center">
+                <img src="./images/pressure.png" alt="pressure.png" class="h-12">
+                <div>
+                    <h2>Pressure</h2>
+                    <h3 class="font-sans">
+                        <%= data.main.pressure %>hPa
+                    </h3>
+                </div>
+            </div>
+            <div class="bg-white w-40 h-40 m-1 rounded-xl flex flex-wrap justify-center items-center">
+                <img src="./images/wind.png" alt="wind.png" class="h-12">
+                <div>
+                    <h2>W-Speed</h2>
+                    <h3 class="font-sans">
+                        <%= data.wind.speed %>m/s
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <!-- cards portion ends -->
+
+
+        <!-- table portion begin -->
+        <div class="flex flex-col bg-white text-black w-2/5 m-auto mt-4 h-96 rounded-xl justify-evenly p-5">
+            <h1>More Weather Data of <%= place %></h1>
+            <div class="flex justify-between">
+                <h3>Sunrise Time</h3>
+                <h3 class="font-sans"><%= new Date(data.sys.sunrise*1000).getHours() %>:<%= new Date(data.sys.sunrise*1000).getMinutes() %> AM</h3>
+            </div>
+            <hr>
+            <div class="flex justify-between">
+                <h3>Sunset Time</h3>
+                <h3 class="font-sans"><%= (new Date(data.sys.sunset*1000).getHours()) - 12 %>:<%= new Date(data.sys.sunset*1000).getMinutes() %> PM</h3>
+            </div>
+            <hr>
+            <div class="flex justify-between">
+                <h3>Wind Degree</h3>
+                <h3 class="font-sans"><%= data.wind.deg %>°</h3>
+            </div>
+            <hr>
+            <div class="flex justify-between">
+                <h3>Latitude</h3>
+                <h3 class="font-sans"><%= data.coord.lat %>°</h3>
+            </div>
+            <hr>
+            <div class="flex justify-between">
+                <h3>Longitude</h3>
+                <h3 class="font-sans"><%= data.coord.lon %>°</h3>
+            </div>
+            <hr>
+        </div>
+        <!-- table portion ends -->
+        <% } %>
+
+            <!-- error section begin -->
+            <% if(locals.error){ %>
+                <h1>location not found!!<br>
+                    <%= error.message %>
+                </h1>
+                <% } %>
+                    <!-- error section ends -->
+
+                    <footer>
+                        Made with ❤️ by Gunjan Mishra
+                    </footer>
+</body>
+
+</html>
+
+<!-- resources: °C -->
+<!-- https://openweathermap.org/img/wn/10d@2x.png -->
+<!-- https://wallpaperaccess.com/full/2055032.jpg -->

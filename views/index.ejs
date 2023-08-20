@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather-Forcast</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./output.css">
+</head>
+
+<body class="bg-slate-700 text-center font-Bree bg-cover bg-no-repeat h-screen bg-fixed text-white"
+    style="background-image: linear-gradient(180deg, transparent,rgba(10, 0, 0, 1)), url(images/background.jpg)">
+
+    <!-- Starter portion begin-->
+    <div class=" w-full flex flex-col justify-evenly items-center my-10 h-80">
+        <h1 class="text-7xl">Weather Forcast</h1>
+        <div class="bg-white rounded-lg p-3 max-w-fit">
+            <form action="/weather" method="post">
+                <input type="text" name="user-location" id="" placeholder="Enter city/Town name"
+                    class="w-96 focus:outline-none focus:text-black">
+                <button type="submit"><img src="./images/search-location.png" alt="search" class="w-5 bg-white"></button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        Made with ❤️ by Gunjan Mishra
+    </footer>
+</body>
+</html>
+
+<!-- background-image: linear-gradient(178deg, transparent,rgba(10, 0, 0, 1)), url(https://wallpaperaccess.com/full/2055032.jpg) -->
+<!-- background-image: linear-gradient(90deg, #0cc0df, #ffde59, #120a50) -->
