@@ -107,12 +107,12 @@
             <h1>More Weather Data of <%= place %></h1>
             <div class="flex justify-between">
                 <h3>Sunrise Time</h3>
-                <h3 class="font-sans"><%= new Date(data.sys.sunrise*1000).getHours() %>:<%= new Date(data.sys.sunrise*1000).getMinutes() %> AM</h3>
+                <h3 class="font-sans"><%= new Date((data.sys.sunrise + data.timezone) * 1000).getHours() %>:<%= new Date((data.sys.sunrise + data.timezone) * 1000).getMinutes() %> AM</h3>
             </div>
             <hr>
             <div class="flex justify-between">
                 <h3>Sunset Time</h3>
-                <h3 class="font-sans"><%= (new Date(data.sys.sunset*1000).getHours()) - 12 %>:<%= new Date(data.sys.sunset*1000).getMinutes() %> PM</h3>
+                <h3 class="font-sans"><%= new Date((data.sys.sunset + data.timezone) * 1000).getHours() %>:<%= new Date((data.sys.sunset + data.timezone) * 1000).getMinutes() %> PM</h3>
             </div>
             <hr>
             <div class="flex justify-between">
