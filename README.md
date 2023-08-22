@@ -60,15 +60,17 @@ run the server
 ```bash
   node index.js
 ```
+## Contributing
 
+Contributions are welcome! If you find a bug, have suggestions for improvements, or want to add new features, please feel free to open an issue or submit a pull request.
 
-## Authors
+## Author
 
 - [@GunjanKMishra](https://github.com/GunjanKMishra)
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+This project is licensed under the [MIT License](https://choosealicense.com/licenses/mit/). You are free to use, modify, and distribute this project as per the terms of the license.
 
 ## Support
 
