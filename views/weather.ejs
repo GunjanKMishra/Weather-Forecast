@@ -104,30 +104,43 @@
 
         <!-- table portion begin -->
         <div class="flex flex-col bg-white text-black w-2/5 m-auto mt-4 h-96 rounded-xl justify-evenly p-5">
-            <h1>More Weather Data of <%= place %></h1>
+            <h1>More Weather Data of <%= place %>
+            </h1>
             <div class="flex justify-between">
                 <h3>Sunrise Time</h3>
-                <h3 class="font-sans"><%= new Date((data.sys.sunrise + data.timezone) * 1000).getHours() %>:<%= new Date((data.sys.sunrise + data.timezone) * 1000).getMinutes() %> AM</h3>
+                <h3 class="font-sans">
+                    <%= new Date((data.sys.sunrise + data.timezone) * 1000).getHours() %>:<%= new Date((data.sys.sunrise
+                            + data.timezone) * 1000).getMinutes() %> AM
+                </h3>
             </div>
             <hr>
             <div class="flex justify-between">
                 <h3>Sunset Time</h3>
-                <h3 class="font-sans"><%= new Date((data.sys.sunset + data.timezone) * 1000).getHours() - 12 %>:<%= new Date((data.sys.sunset + data.timezone) * 1000).getMinutes() %> PM</h3>
+                <h3 class="font-sans">
+                    <%= new Date((data.sys.sunset + data.timezone) * 1000).getHours() - 12 %>:<%= new
+                            Date((data.sys.sunset + data.timezone) * 1000).getMinutes() %> PM
+                </h3>
             </div>
             <hr>
             <div class="flex justify-between">
                 <h3>Wind Degree</h3>
-                <h3 class="font-sans"><%= data.wind.deg %>°</h3>
+                <h3 class="font-sans">
+                    <%= data.wind.deg %>°
+                </h3>
             </div>
             <hr>
             <div class="flex justify-between">
                 <h3>Latitude</h3>
-                <h3 class="font-sans"><%= data.coord.lat %>°</h3>
+                <h3 class="font-sans">
+                    <%= data.coord.lat %>°
+                </h3>
             </div>
             <hr>
             <div class="flex justify-between">
                 <h3>Longitude</h3>
-                <h3 class="font-sans"><%= data.coord.lon %>°</h3>
+                <h3 class="font-sans">
+                    <%= data.coord.lon %>°
+                </h3>
             </div>
             <hr>
         </div>
@@ -152,3 +165,10 @@
 <!-- resources: °C -->
 <!-- https://openweathermap.org/img/wn/10d@2x.png -->
 <!-- https://wallpaperaccess.com/full/2055032.jpg -->
+
+<!--how to use ejs object in javascript file-->
+<!-- <script>
+    var test = '<%- JSON.stringify(data) %>';
+    var testjson = JSON.parse(test); // test is now a valid js object
+    alert(testjson.wind.speed);
+</script> -->
