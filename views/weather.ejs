@@ -158,6 +158,11 @@
                     <footer>
                         Made with ❤️ by Gunjan Mishra
                     </footer>
+                    <script>
+                        var test = '<%- JSON.stringify(data) %>';
+                        var testjson = JSON.parse(test); // test is now a valid js object
+                        document.querySelector("body").style.backgroundImage = `url(./images/weather-img/${testjson.weather[0].icon}.jpg)`;
+                    </script>
 </body>
 
 </html>
